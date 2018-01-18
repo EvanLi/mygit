@@ -1,5 +1,9 @@
-> 原文链接:
-> https://github.com/caozhiqiango/learngit
+﻿# Git学习
+
+标签：git
+----------
+[原文链接](https://github.com/caozhiqiango/learngit)
+
 
 ##### 写在前面
 - 本文档是学习 [廖雪峰Git教程](http://t.cn/zQ6LFwE) 后所做的笔记，教程帮忙很大，非常感谢！
@@ -21,6 +25,19 @@ git commit -m "提交说明"  #从暂存区提交到版本库
 ```
 > git add 命令可多次执行，然后commit一次。
 
+``` git init ```
+该命令执行完后会在当前目录生成一个 .git 目录。
+使用我们指定目录作为Git仓库。
+```git init newrepo```
+初始化后，会在 newrepo 目录下会出现一个名为 .git 的目录，所有 Git 需要的数据和资源都存放在这个目录中。
+如果当前目录下有几个文件想要纳入版本控制，需要先用 git add 命令告诉 Git 开始对这些文件进行跟踪，然后提交：
+```
+$ git add *.c   *.c（所以.c后缀文件） 若直接用 * 则是所有文件
+$ git add README 添加README文件到暂存区
+$ git commit -m '初始化项目版本' 
+以上命令将目录下以 .c 结尾及 README 文件提交到仓库中。
+$ git rm --cached <file> 移除暂存区中的file文件
+```
 ##### 时光机穿梭
 - 查看状态、差异
 
@@ -92,7 +109,17 @@ git push -u origin <branch>  #推送并关联指定分支到远程库
 git clone git@server-name:path/repo-name.git  #将远程仓库克隆到当前目录
 git pull  #拉取远程仓库内容
 ```
-
+```
+git clone
+我们使用 git clone 从现有 Git 仓库中拷贝项目（类似 svn checkout）。
+克隆仓库的命令格式为：
+git clone <repo>
+如果我们需要克隆到指定的目录，可以使用以下命令格式：
+git clone <repo> <directory>
+如：
+$ git clone git://github.com/schacon/grit.git
+$ git clone git://github.com/schacon/grit.git mygrit
+```
 ##### 分支管理
 ```
 git branch <branch>  #创建分支
